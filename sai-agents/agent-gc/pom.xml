@@ -3,20 +3,27 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>sai</artifactId>
+    <artifactId>sai-agents</artifactId>
     <groupId>com.github.nailcui</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>sai-core</artifactId>
+  <artifactId>agent-gc</artifactId>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
 
   <dependencies>
     <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy</artifactId>
+      <groupId>com.taobao.arthas</groupId>
+      <artifactId>arthas-vmtool</artifactId>
+      <version>3.5.4</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -28,8 +35,8 @@
               <addClasspath>true</addClasspath>
             </manifest>
             <manifestEntries>
-              <Premain-Class>com.github.nailcui.sai.core.Agent</Premain-Class>
-              <Agent-Class>com.github.nailcui.sai.core.Agent</Agent-Class>
+              <Premain-Class>com.github.nailcui.sai.agent.gc.Agent</Premain-Class>
+              <Agent-Class>com.github.nailcui.sai.agent.gc.Agent</Agent-Class>
               <Can-Redefine-Classes>true</Can-Redefine-Classes>
               <Can-Retransform-Classes>true</Can-Retransform-Classes>
               <Specification-Title>${project.name}</Specification-Title>
@@ -54,6 +61,5 @@
       </plugin>
     </plugins>
   </build>
-
 
 </project>

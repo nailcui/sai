@@ -12,11 +12,22 @@
 
     <modules>
         <module>sai-core</module>
-      <module>sai-example</module>
+        <module>sai-example</module>
+        <module>sai-attacher</module>
+        <module>sai-agents</module>
     </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.nailcui</groupId>
+                <artifactId>sai-agents</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
